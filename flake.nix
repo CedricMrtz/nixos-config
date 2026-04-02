@@ -20,13 +20,13 @@
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       specialArgs = { inherit inputs; inherit system; };
       modules = [
-        ./configuration.nix
+        ./nixos/configuration.nix
         home-manager.nixosModules.home-manager
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.extraSpecialArgs = {inherit inputs system; };
-          home-manager.users.cedric = import ./home.nix;
+          home-manager.users.cedric = import ./home/home.nix;
         }
       ];
     };
