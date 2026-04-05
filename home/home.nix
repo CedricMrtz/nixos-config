@@ -7,7 +7,7 @@
   
   imports = [
     inputs.zen-browser.homeModules.twilight
-    ./modules/lazyvim.nix
+    ../modules/lazyvim.nix
   ];
 
   programs.zen-browser.enable = true;
