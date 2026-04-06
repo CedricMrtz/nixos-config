@@ -46,7 +46,7 @@
         touchpad.natural_scroll = true;
       };
       bind = [
-        "$mod, Return, exec, kitty"
+        "$mod, Return, exec, ghostty"
         "$mod, D, exec, wofi --show drun"
         "$mod, Q, killactive"
         "$mod, F, fullscreen"

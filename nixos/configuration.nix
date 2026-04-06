@@ -103,6 +103,7 @@
    ghostty
    git
    neovim
+   libreoffice-fresh
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
