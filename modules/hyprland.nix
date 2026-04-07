@@ -1,7 +1,6 @@
 { config, pkgs, inputs, system, ... }: 
 {
   home.packages = with pkgs; [
-    kitty
     wofi
     waybar
     hyprpaper
@@ -51,14 +50,14 @@
         "$mod, Q, killactive"
         "$mod, F, fullscreen"
         "$mod, Space, togglefloating"
-        "$mod, H, movefocus, l"
-        "$mod, L, movefocus, r"
-        "$mod, K, movefocus, u"
-        "$mod, J, movefocus, d"
-        "$mod SHIFT, H, movewindow, l"
-        "$mod SHIFT, L, movewindow, r"
-        "$mod SHIFT, K, movewindow, u"
-        "$mod SHIFT, J, movewindow, d"
+        "$mod, left, movefocus, l"
+        "$mod, right, movefocus, r"
+        "$mod, up, movefocus, u"
+        "$mod, down, movefocus, d"
+        "$mod SHIFT, left, movewindow, l"
+        "$mod SHIFT, right, movewindow, r"
+        "$mod SHIFT, up, movewindow, u"
+        "$mod SHIFT, down, movewindow, d"
         "$mod, 1, workspace, 1"
         "$mod, 2, workspace, 2"
         "$mod, 3, workspace, 3"
