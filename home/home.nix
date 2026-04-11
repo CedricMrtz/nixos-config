@@ -4,7 +4,24 @@
   home.stateVersion = "24.11";
 
   programs.home-manager.enable = true;
-  
+ 
+  home.pointerCursor = {
+    name = "Bibata-Modern-Classic";
+    package = pkgs.bibata-cursors;
+    size = 24;
+    gtk.enable = true;
+    x11.enable = true;
+  };
+
+  services.hyprpaper = {
+    enable = true;
+    settings = {
+      preload = ["/home/cedric/nixos-config/dotfiles/wallpapers/little_girl.png"];
+      wallpaper = ["DP-1/home/cedric/nixos-config/dotfiles/wallpapers/little_girl.png"];
+      ipc = "on";
+    };
+  };
+
   imports = [
     inputs.zen-browser.homeModules.twilight
     ../modules/lazyvim.nix

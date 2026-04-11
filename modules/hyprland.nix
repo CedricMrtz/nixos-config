@@ -45,12 +45,14 @@
         touchpad.natural_scroll = true;
       };
       env = [
-       "XCURSOR_THEME,Bibata-Modern-Classic"
-       "XCURSOR_SIZE,24"
+        "XCURSOR_THEME,Bibata-Modern-Classic"
+        "XCURSOR_SIZE,24"
       ];
       cursor = {
         no_hardware_cursors = true;
-      }
+        inactive_timeout = 3;
+      };
+
       bind = [
         "$mod, Return, exec, ghostty"
         "$mod, D, exec, wofi --show drun"
