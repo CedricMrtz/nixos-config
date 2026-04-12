@@ -3,12 +3,12 @@
   home.packages = with pkgs; [
     wofi
     waybar
-    hyprpaper
+    awww
     hyprlock
-    dunst
-    wl-clipboard
-    grim
-    slurp
+    # dunst
+    # wl-clipboard
+    # grim
+    # slurp
   ];
 
   wayland.windowManager.hyprland = {
@@ -19,8 +19,8 @@
       monitor = ",preferred,auto,1";
       exec-once = [
         "waybar"
-        "hyprpaper"
         "dunst"
+        "bash -c 'awww-daemon && awww img /home/cedric/nixos-config/dotfiles/wallpapers/little_girl.png --transition-type fade'"
       ];
       general = {
         gaps_in = 5;
@@ -55,8 +55,9 @@
 
       bind = [
         "$mod, Return, exec, ghostty"
+        "$mod, Z, exec, zen-twilight"
         "$mod, D, exec, wofi --show drun"
-        "$mod, Q, killactive"
+        "$mod, W, killactive"
         "$mod, F, fullscreen"
         "$mod, Space, togglefloating"
         "$mod, left, movefocus, l"

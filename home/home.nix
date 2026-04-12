@@ -13,15 +13,6 @@
     x11.enable = true;
   };
 
-  services.hyprpaper = {
-    enable = true;
-    settings = {
-      preload = ["/home/cedric/nixos-config/dotfiles/wallpapers/little_girl.png"];
-      wallpaper = ["DP-1/home/cedric/nixos-config/dotfiles/wallpapers/little_girl.png"];
-      ipc = "on";
-    };
-  };
-
   imports = [
     inputs.zen-browser.homeModules.twilight
     ../modules/lazyvim.nix
@@ -30,6 +21,7 @@
 
   programs.zen-browser.enable = true;
 
+  # symlink for the .dotfile of lazyvim
   xdg.configFile."nvim".source = config.lib.file.mkOutOfStoreSymlink
   "${config.home.homeDirectory}/nixos-config/dotfiles/nvim";
   
