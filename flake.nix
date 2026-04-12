@@ -21,21 +21,23 @@
   };
   outputs = { self, nixpkgs, home-manager, zen-browser, hyprland, ... }@inputs:
   let
-    system = "x86_64-linux";
-    pkgs = nixpkgs.legacyPackages.${system};
-  in {
-    nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-      specialArgs = { inherit inputs; inherit system; };
+    mkSystem = host: system: nixpkgs.lib.nixosSystem {
+      specialArgs = { inherit inputs system; };
       modules = [
-        hosts/desktop/configuration.nix
+        ./hosts/${host}/configuration.nix
         home-manager.nixosModules.home-manager
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.extraSpecialArgs = {inherit inputs system; };
+          home-manager.extraSpecialArgs = { inherit inputs system; };
           home-manager.users.cedric = import ./home/cedric/home.nix;
         }
       ];
+    };
+  in {
+    nixosConfigurations = {
+      desktop = mkSystem "desktop" "x86_64-linux";
+      laptop  = mkSystem "laptop"  "x86_64-linux";
     };
   };
 }
