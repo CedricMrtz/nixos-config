@@ -15,8 +15,8 @@
 
   imports = [
     inputs.zen-browser.homeModules.twilight
-    ../modules/lazyvim.nix
-    ../modules/hyprland.nix
+    ../../modules/lazyvim.nix
+    ../../modules/hyprland.nix
   ];
 
   programs.zen-browser.enable = true;
