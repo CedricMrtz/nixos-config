@@ -13,13 +13,24 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
+ 
+    # hyprland = {
+    #   url = "github:hyprwm/Hyprland";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
+    
+    noctalia = {
+      url = "github:noctalia-dev/noctalia-shell";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.quickshell.follows = "quickshell";
+    };
 
-    hyprland = {
-      url = "github:hyprwm/Hyprland";
+    quickshell = {
+      url = "github:outfoxxed/quickshell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-  };
-  outputs = { self, nixpkgs, home-manager, zen-browser, hyprland, ... }@inputs:
+};
+  outputs = { self, nixpkgs, home-manager, zen-browser, noctalia, quickshell, ... }@inputs:
   let
     mkSystem = host: system: nixpkgs.lib.nixosSystem {
       specialArgs = { inherit inputs system; };

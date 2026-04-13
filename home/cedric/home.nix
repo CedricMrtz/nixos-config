@@ -16,7 +16,8 @@
   imports = [
     inputs.zen-browser.homeModules.twilight
     ../../modules/lazyvim.nix
-    ../../modules/hyprland.nix
+    # ../../modules/hyprland.nix
+    ../../modules/niri.nix
   ];
 
   programs.zen-browser.enable = true;
@@ -27,10 +28,11 @@
   
   programs.git = {
     enable = true;
-    userName = "Cedric Martinez";
-    userEmail = "cedric.martinez@cetys.edu.mx";
-    extraConfig = {
+    settings = {
+      user.name = "Cedric Martinez";
+      user.email = "cedric.martinez@cetys.edu.mx";
       init.defaultBranch = "main";
+      # gpg.format = null;
     };
   };
 

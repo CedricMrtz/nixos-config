@@ -39,7 +39,7 @@
     layout = "us";
     variant = "";
   };
-
+  # ssh for github
   programs.ssh = {
   extraConfig = ''
     Host github.com
@@ -49,15 +49,29 @@
   '';
   };
 
-  # hyprland config``
-  programs.hyprland = {
-    enable = true;
-    withUWSM = true;
+  # noctalia
+  nix.settings = {
+    extra-substituters = [ "https://noctalia.cachix.org" ];
+    extra-trusted-public-keys = [ "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4=" ];
   };
+
+  services.displayManager.gdm.enable = true;
+  services.desktopManager.gnome.enable = true;
+
+  # niri
+  programs.niri.enable = true;
+  #
+  # # hyprland config``
+  # programs.hyprland = {
+  #   enable = true;
+  #   withUWSM = true;
+  # };
 
   xdg.portal = {
     enable = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-hyprland ];
+    # extraPortals = [ pkgs.xdg-desktop-portal-hyprland ];
+    extraPortals = [ pkgs.xdg-desktop-portal-gnome ];
+    config.common.default = "*";
   };
 
   hardware.graphics = {
