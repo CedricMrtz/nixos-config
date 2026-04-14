@@ -25,6 +25,9 @@
   # symlink for the .dotfile of lazyvim
   xdg.configFile."nvim".source = config.lib.file.mkOutOfStoreSymlink
   "${config.home.homeDirectory}/nixos-config/dotfiles/nvim";
+
+  xdg.configFile."ghostty/config".source = config.lib.file.mkOutOfStoreSymlink
+  "${config.home.homeDirectory}/nixos-config/dotfiles/ghostty/config";
   
   programs.git = {
     enable = true;
