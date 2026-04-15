@@ -49,6 +49,12 @@
   '';
   };
 
+  users.users.cedric ={
+    shell = pkgs.zsh;
+  };
+
+  programs.zsh.enable = true;
+
   # noctalia
   nix.settings = {
     extra-substituters = [ "https://noctalia.cachix.org" ];

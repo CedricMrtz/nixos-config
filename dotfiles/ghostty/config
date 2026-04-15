@@ -22,3 +22,4 @@ cursor-style-blink = true
 
 # ── Shell ─────────────────────────────────────
 shell-integration-features = cursor,sudo,title
+shell-integration = zsh

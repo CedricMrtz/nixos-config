@@ -26,9 +26,10 @@
   xdg.configFile."nvim".source = config.lib.file.mkOutOfStoreSymlink
   "${config.home.homeDirectory}/nixos-config/dotfiles/nvim";
 
+  # symlink for the .dotfile of ghostty
   xdg.configFile."ghostty/config".source = config.lib.file.mkOutOfStoreSymlink
   "${config.home.homeDirectory}/nixos-config/dotfiles/ghostty/config";
-  
+
   programs.git = {
     enable = true;
     settings = {
@@ -38,5 +39,35 @@
       # gpg.format = null;
     };
   };
+
+  programs.zsh = {
+    enable = true;
+    enableCompletion = true;
+    autosuggestion.enable = true;
+    syntaxHighlighting.enable = true;
+
+    oh-my-zsh = {
+      enable = true;
+      plugins = [ "git" "sudo" ];
+    };
+
+    # Source P10k theme and its instant prompt
+    initExtra = ''
+      if [[ -r "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh" ]]; then
+        source "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh"
+      fi
+
+      export POWERLEVEL9K_CONFIG_FILE=~/nixos-config/dotfiles/p10k/.p10k.zsh
+      [[ -f ~/nixos-config/dotfiles/p10k/.p10k.zsh ]] && source ~/nixos-config/dotfiles/p10k/.p10k.zsh
+    '';
+  };
+  
+  programs.zsh.plugins = [
+    {
+      name = "powerlevel10k";
+      src = pkgs.zsh-powerlevel10k;
+      file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
+    }
+  ];
 
 }
