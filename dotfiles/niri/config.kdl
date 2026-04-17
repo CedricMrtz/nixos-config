@@ -67,6 +67,21 @@ window-rule {
     clip-to-geometry true
 }
 
+// ── Noctalia wallpaper ───────────────────────────────────────────────────────────
+window-rule {
+  geometry-corner-radius 20
+  clip-to-geometry true
+}
+
+debug {
+  honor-xdg-activation-with-invalid-serial
+}
+
+layer-rule {
+  match namespace="^noctalia-overview*"
+  place-within-backdrop true
+}
+
 // ── Keybindings ────────────────────────────────────────────────────────────
 binds {
     // ── Session ──────────────────────────────────────────────────────────
@@ -76,11 +91,16 @@ binds {
 
     // ── Apps ─────────────────────────────────────────────────────────────
     Mod+Return  { spawn "ghostty"; }
-    Mod+D       { spawn "fuzzel"; }
     Mod+E       { spawn "nautilus"; }
+    
+    // ── Noctalia ─────────────────────────────────────────────────────────────
+    Mod+Space       { spawn-sh "noctalia-shell ipc call launcher toggle";}
+    Mod+P       { spawn-sh "noctalia-shell ipc call controlCenter toggle"; }
+    Mod+Comma   { spawn-sh "noctalia-shell ipc call settings toggle"; }
+
 
     // ── Screenshots ──────────────────────────────────────────────────────
-    Mod+S             { screenshot; }
+    // Mod+S             { screenshot; }
     Ctrl+Print        { screenshot-screen; }
     Alt+Print         { screenshot-window; }
 
@@ -136,7 +156,7 @@ binds {
     Mod+Tab           { toggle-overview; }
 
     // ── Floating ─────────────────────────────────────────────────────────
-    Mod+Space         { toggle-window-floating; }
+    // Mod+Space         { toggle-window-floating; }
     Mod+Shift+Space   { switch-focus-between-floating-and-tiling; }
 
     // ── Close ────────────────────────────────────────────────────────────

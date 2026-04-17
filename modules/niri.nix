@@ -16,10 +16,9 @@
   home.packages = with pkgs; [
     xwayland-satellite
     wl-clipboard
-    fuzzel
     swaylock
   ];
-
+  # symlink de niri
   xdg.configFile."niri/config.kdl".source = config.lib.file.mkOutOfStoreSymlink
     "${config.home.homeDirectory}/nixos-config/dotfiles/niri/config.kdl";
 }
