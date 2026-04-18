@@ -4,13 +4,6 @@
 
   programs.noctalia-shell = {
     enable = true;
-    settings = {
-      bar.position = "top";
-      colorSchemes = {
-        darkMode = true;
-        predefinedScheme = "Tokyo Night";
-      };
-    };
   };
 
   home.packages = with pkgs; [

@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, system, ... }: {
+{ config, pkgs, lib, inputs, system, ... }: {
   home.username = "cedric";
   home.homeDirectory = "/home/cedric";
   home.stateVersion = "24.11";
@@ -29,6 +29,10 @@
   # symlink for the .dotfile of ghostty
   xdg.configFile."ghostty/config".source = config.lib.file.mkOutOfStoreSymlink
   "${config.home.homeDirectory}/nixos-config/dotfiles/ghostty/config";
+
+  # noctalia shell symlink config
+  xdg.configFile."noctalia/settings.json".source = lib.mkForce (config.lib.file.mkOutOfStoreSymlink
+  "${config.home.homeDirectory}/nixos-config/dotfiles/noctalia/settings.json");
 
   programs.git = {
     enable = true;
