@@ -30,10 +30,6 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
-  # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
-
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "us";
@@ -61,9 +57,6 @@
     extra-trusted-public-keys = [ "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4=" ];
   };
 
-  services.displayManager.gdm.enable = true;
-  services.desktopManager.gnome.enable = true;
-
   # niri
   programs.niri.enable = true;
   #
@@ -76,7 +69,7 @@
   xdg.portal = {
     enable = true;
     # extraPortals = [ pkgs.xdg-desktop-portal-hyprland ];
-    extraPortals = [ pkgs.xdg-desktop-portal-gnome ];
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
     config.common.default = "*";
   };
 
@@ -99,6 +92,11 @@
 
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
+
+  services.displayManager.autoLogin = {
+    enable = true;
+    user = "cedric";
+  };
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;

@@ -59,7 +59,7 @@ animations {
 // ── Autostart ──────────────────────────────────────────────────────────────
 spawn-at-startup "noctalia-shell"
 spawn-at-startup "xwayland-satellite"
-// spawn-at-startup "swaylock" "--daemonize"
+spawn-at-startup "bash" "-c" "sleep 2 && noctalia-shell ipc call lockScreen lock"
 
 // ── Window rules ───────────────────────────────────────────────────────────
 window-rule {
@@ -92,6 +92,7 @@ binds {
     // ── Apps ─────────────────────────────────────────────────────────────
     Mod+Return  { spawn "ghostty"; }
     Mod+E       { spawn "nautilus"; }
+    Mod+Z       { spawn "zen-twilight"; }
     
     // ── Noctalia ─────────────────────────────────────────────────────────────
     Mod+Space       { spawn-sh "noctalia-shell ipc call launcher toggle";}
