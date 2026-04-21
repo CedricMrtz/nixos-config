@@ -171,3 +171,6 @@ binds {
     XF86MonBrightnessUp   { spawn "brightnessctl" "set" "10%+"; }
     XF86MonBrightnessDown { spawn "brightnessctl" "set" "10%-"; }
 }
+
+include "./noctalia.kdl"
+
