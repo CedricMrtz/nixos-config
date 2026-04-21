@@ -93,6 +93,7 @@ binds {
     Mod+Return  { spawn "ghostty"; }
     Mod+E       { spawn "nautilus"; }
     Mod+Z       { spawn "zen-twilight"; }
+    Mod+O       { spawn "obsidian";}
     
     // ── Noctalia ─────────────────────────────────────────────────────────────
     Mod+Space       { spawn-sh "noctalia-shell ipc call launcher toggle";}
@@ -101,7 +102,7 @@ binds {
 
 
     // ── Screenshots ──────────────────────────────────────────────────────
-    // Mod+S             { screenshot; }
+    Mod+S             { screenshot; }
     Ctrl+Print        { screenshot-screen; }
     Alt+Print         { screenshot-window; }
 

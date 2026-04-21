@@ -50,6 +50,11 @@
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
 
+    shellAliases = {
+      gc = "sudo nix-collect-garbage -d";
+      rebuild = "sudo nixos-rebuild switch --flake ~/nixos-config#desktop";
+    };
+
     oh-my-zsh = {
       enable = true;
       plugins = [ "git" "sudo" ];
@@ -78,5 +83,8 @@
     name = app;
     value = { name = app; noDisplay = true; exec = app; };
   }) [ "xterm" "contacts" "audio player" ]);
-
+  
+  home.packages = with pkgs; [
+    obsidian
+  ];
 }
