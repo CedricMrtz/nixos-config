@@ -49,5 +49,6 @@
     obsidian
     rmpc
     brave
+    steam
   ];
 }

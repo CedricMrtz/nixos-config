@@ -32,8 +32,9 @@
 
   # Configure keymap in X11
   services.xserver.xkb = {
-    layout = "us";
+    layout = "us,es";
     variant = "";
+    options = "grp:caps_toggle";
   };
   # ssh for github
   programs.ssh = {

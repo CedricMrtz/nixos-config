@@ -2,7 +2,8 @@
 input {
     keyboard {
         xkb {
-            layout "us"
+            layout "us,latam"
+            options "grp:caps_toggle"
         }
     }
 
@@ -20,8 +21,8 @@ input {
 // ── Output ─────────────────────────────────────────────────────────────────
 // Remove or adjust this block to match your monitor.
 // Run `niri msg outputs` to see what niri detects.
-output "DP-1" {
-    mode "1920x1080@144.000"
+output "HKC OVERSEAS LIMITED 34E6UC 0000000000001" {
+    mode "3440x1440@144.000"
     scale 1.0
     position x=0 y=0
 }
@@ -93,12 +94,15 @@ binds {
     Mod+Return  { spawn "ghostty"; }
     Mod+E       { spawn "nautilus"; }
     Mod+Z       { spawn "zen-twilight"; }
+    Mod+B       { spawn "brave"; }
     Mod+O       { spawn "obsidian";}
     
     // ── Noctalia ─────────────────────────────────────────────────────────────
     Mod+Space       { spawn-sh "noctalia-shell ipc call launcher toggle";}
     Mod+P       { spawn-sh "noctalia-shell ipc call controlCenter toggle"; }
     Mod+Comma   { spawn-sh "noctalia-shell ipc call settings toggle"; }
+    Mod+W       {spawn-sh "noctalia-shell ipc call wallpaper toggle";}
+    Mod+Shift+Q {spawn-sh "noctalia-shell ipc call sessionMenu toggle";}
 
 
     // ── Screenshots ──────────────────────────────────────────────────────
