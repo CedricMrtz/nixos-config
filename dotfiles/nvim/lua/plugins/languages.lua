@@ -25,12 +25,14 @@ return {
         "css-lsp",
         "clangd",
         "clang-format",
+        "jdtls",
 
         -- Formatters / linters
         "prettier",
         "black",
         "ruff",
         "stylua",
+        "google-java-format",
       })
     end,
   },

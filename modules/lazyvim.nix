@@ -12,6 +12,9 @@
     nodejs
     python3
 
+    stylua
+    shfmt
+
     (pkgs.vimPlugins.nvim-treesitter.withPlugins (p: [
       p.c p.cpp p.lua p.python p.rust
       p.typescript p.tsx p.javascript

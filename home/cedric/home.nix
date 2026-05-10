@@ -19,6 +19,7 @@
     # ../../modules/hyprland.nix
     ../../modules/niri.nix
     ../../modules/ohmyzsh.nix
+    ../../modules/languages.nix
   ];
 
   programs.zen-browser.enable = true;
