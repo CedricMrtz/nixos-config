@@ -106,7 +106,7 @@
   users.users.cedric = {
     isNormalUser = true;
     description = "Cedric Martinez";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "libvirtd" ];
     packages = with pkgs; [
     #  thunderbird
     ];
@@ -123,7 +123,10 @@
    git
    neovim
    libreoffice-fresh
+   # virt-manager
   ];
+
+  # virtualisation.libvirtd.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
