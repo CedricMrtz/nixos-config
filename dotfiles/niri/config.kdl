@@ -7,6 +7,8 @@ input {
         }
     }
 
+    focus-follows-mouse 
+
     touchpad {
         tap
         natural-scroll
@@ -72,6 +74,13 @@ spawn-at-startup "bash" "-c" "sleep 2 && noctalia-shell ipc call lockScreen lock
 window-rule {
     geometry-corner-radius 8
     clip-to-geometry true
+    opacity 0.9
+}
+
+window-rule {
+  opacity 0.9
+  match app-id="ghostty"
+  draw-border-with-background false
 }
 
 // ── Noctalia wallpaper ───────────────────────────────────────────────────────────
