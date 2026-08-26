@@ -56,5 +56,6 @@
     rmpc
     brave
     steam
+    tree
   ];
 }
