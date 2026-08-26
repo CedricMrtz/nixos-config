@@ -20,6 +20,7 @@
     ../../modules/niri.nix
     ../../modules/ohmyzsh.nix
     ../../modules/languages.nix
+    ../../modules/mpd.nix
   ];
 
   programs.zen-browser.enable = true;
