@@ -36,6 +36,10 @@
   # noctalia shell symlink config
   xdg.configFile."noctalia/settings.json".source = lib.mkForce (config.lib.file.mkOutOfStoreSymlink
   "${config.home.homeDirectory}/nixos-config/dotfiles/noctalia/settings.json");
+  
+  # symlink for rmpc 
+  xdg.configFile."rmpc/config.ron".source = config.lib.file.mkOutOfStoreSymlink
+  "${config.home.homeDirectory}/nixos-config/dotfiles/rmpc/config.ron";
 
   programs.git = {
     enable = true;
