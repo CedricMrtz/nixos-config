@@ -7,7 +7,7 @@
     programs.niri.enable = lib.mkForce false;
     services.pipewire.enable = lib.mkForce false;
 
-    home-manager.users.cedric = lib.mkForce (import ../../home/cedric/home-server.nix);
+    home-manager.users.cedric = lib.mkForce (import ../../home/server/home.nix);
 
     virtualisation.oci-containers.backend = "podman";
     virtualisation.oci-containers.containers = {
