@@ -24,8 +24,14 @@
 
   services.openssh.enable = true;
 
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth.powerOnBoot = true;
+  services.blueman.enable = true;
+
   nixpkgs.config.allowUnfree = true;
   nix.settings.experimental-features = ["nix-command" "flakes"];
+
+  home-manager.backupFileExtension = "backup";
 
   environment.systemPackages = with pkgs; [
     git
