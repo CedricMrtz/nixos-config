@@ -9,11 +9,12 @@
 
     home-manager.users.cedric = lib.mkForce (import ../../home/server/home.nix);
 
-    virtualisation.oci-containers.backend = "podman";
-    # virtualisation.oci-containers.containers = {
-    #   immich = { };
-    #   navidrome = { };
-    # };
-    networking.firewall.allowedTCPPorts = [ 2283 4533 ];
+    services.immich = {
+      enable = true;
+      port = 2283;
+      mediaLocation = "/var/lib/immich";
+    };
+
+    networking.firewall.allowedTCPPorts = [ 2283 ];
   };
 }

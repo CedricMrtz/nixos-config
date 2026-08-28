@@ -32,6 +32,7 @@
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
   home-manager.backupFileExtension = "backup";
+  services.tailscale.enable = true;
 
   environment.systemPackages = with pkgs; [
     git
