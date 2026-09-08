@@ -34,6 +34,8 @@
   home-manager.backupFileExtension = "backup";
   services.tailscale.enable = true;
 
+  virtualisation.docker.enable = true;
+
   environment.systemPackages = with pkgs; [
     git
     neovim 
