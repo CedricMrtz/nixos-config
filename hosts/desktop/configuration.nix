@@ -45,6 +45,8 @@
       IdentitiesOnly yes
   '';
   };
+  
+  services.openssh.enable = true;
 
   users.users.cedric ={
     shell = pkgs.zsh;
