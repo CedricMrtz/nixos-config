@@ -1,7 +1,3 @@
-# Noctalia v5. Rice Tokyo Night + glass.
-# Lo que cambies desde la GUI se guarda en ~/.local/state/noctalia/settings.toml y tiene prioridad.
-# Referencia de todas las claves: example.toml en el input `noctalia` del flake.
-
 # ── Tema ─────────────────────────────────────────────────────────────────────
 [theme]
 mode = "dark"
@@ -56,31 +52,43 @@ tint_intensity = 0.6
 [bar.default]
 position = "top"
 thickness = 36
-background_opacity = 0.80
-compositor_blur = true
-radius = 14
-margin_edge = 8
-margin_ends = 12
-padding = 10
-widget_spacing = 6
-shadow = true
+background_opacity = 0.0    # fondo invisible: solo se ven las cápsulas de los widgets
+compositor_blur = false   # sin blur detrás de la barra vacía
+radius = 0               # pegada al borde: sin esquinas redondeadas
+margin_edge = 0          # sin hueco entre la barra y el borde superior
+margin_ends = 15        # separación desde los lados (más grande = secciones más juntas)
+padding = 6
+widget_spacing = 3
+shadow = false
 capsule = true
 capsule_fill = "surface_container"
 capsule_opacity = 0.85
 capsule_border = "outline_variant"
 capsule_border_width = 1.0
 
-start  = ["launcher", "clock", "sysmon", "active-window", "media"]
-center = ["workspaces"]
-end    = ["tray", "notifications", "network", "bluetooth", "volume", "brightness", "battery", "control-center", "session"]
+# Igual que el layout por defecto, pero sin launcher ni red, y con CPU/RAM/GPU
+start  = ["workspaces"]
+center = ["clock"]
+end    = ["cpu", "ram", "gpu", "media"]
 
-[widget.launcher]
-glyph = "rocket"
+# Monitores de rendimiento (widget sysmon, una instancia por métrica)
+[widget.cpu]
+type = "sysmon"
+stat = "cpu_usage"
+
+[widget.ram]
+type = "sysmon"
+stat = "ram_pct"
+
+[widget.gpu]
+type = "sysmon"
+stat = "gpu_usage"
 
 [widget.clock]
 format = "{:%H:%M}"
 tooltip_format = "{:%A, %d %B %Y}"
 font_weight = 700
+font_scale = 1.3   # hora más grande
 
 # ── Notificaciones / OSD ─────────────────────────────────────────────────────
 [notification]
@@ -143,4 +151,3 @@ show_keyboard_layout = true
 show_login_button = true
 show_media = true
 show_session_buttons = true
-show_unlock_hint = true
