@@ -1,0 +1,23 @@
+# Noctalia v5. Migrado a mano desde settings.json (v4); los ajustes de la v4 no se migran solos.
+# Lo que cambies desde la GUI se guarda en ~/.local/state/noctalia/settings.toml y tiene prioridad.
+
+[theme]
+mode = "dark"
+source = "wallpaper"   # en v4: useWallpaperColors = true
+builtin = "Gruvbox"    # se usa si cambias source a "builtin"
+sync_color_scheme = true
+
+[wallpaper]
+enabled = true
+fill_mode = "crop"
+fill_color = "#000000"
+transition_duration = 1500
+directory = "/home/cedric/nixos-config/dotfiles/wallpapers"
+
+[backdrop]             # fondo difuminado en el overview de niri
+enabled = true
+blur_intensity = 0.4
+tint_intensity = 0.6
+
+[bar.default]
+position = "top"

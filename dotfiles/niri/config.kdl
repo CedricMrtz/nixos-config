@@ -66,9 +66,9 @@ animations {
 }
 
 // ── Autostart ──────────────────────────────────────────────────────────────
-spawn-at-startup "noctalia-shell"
+spawn-at-startup "noctalia"
 spawn-at-startup "xwayland-satellite"
-spawn-at-startup "bash" "-c" "sleep 2 && noctalia-shell ipc call lockScreen lock"
+spawn-at-startup "bash" "-c" "sleep 2 && noctalia msg session lock"
 
 // ── Window rules ───────────────────────────────────────────────────────────
 window-rule {
@@ -90,12 +90,20 @@ window-rule {
   clip-to-geometry true
 }
 
+// Ventana flotante de ajustes de Noctalia (v5)
+window-rule {
+  match app-id="dev.noctalia.Noctalia"
+  open-floating true
+  default-column-width { fixed 1080; }
+  default-window-height { fixed 920; }
+}
+
 debug {
   honor-xdg-activation-with-invalid-serial
 }
 
 layer-rule {
-  match namespace="^noctalia-overview*"
+  match namespace="^noctalia-backdrop"
   place-within-backdrop true
 }
 
@@ -114,11 +122,11 @@ binds {
     Mod+O       { spawn "obsidian";}
     
     // ── Noctalia ─────────────────────────────────────────────────────────────
-    Mod+Space       { spawn-sh "noctalia-shell ipc call launcher toggle";}
-    Mod+P       { spawn-sh "noctalia-shell ipc call controlCenter toggle"; }
-    Mod+Comma   { spawn-sh "noctalia-shell ipc call settings toggle"; }
-    Mod+W       {spawn-sh "noctalia-shell ipc call wallpaper toggle";}
-    Mod+Shift+Q {spawn-sh "noctalia-shell ipc call sessionMenu toggle";}
+    Mod+Space       { spawn-sh "noctalia msg panel-toggle launcher";}
+    Mod+P       { spawn-sh "noctalia msg panel-toggle control-center"; }
+    Mod+Comma   { spawn-sh "noctalia msg settings-toggle"; }
+    Mod+W       {spawn-sh "noctalia msg panel-toggle wallpaper";}
+    Mod+Shift+Q {spawn-sh "noctalia msg panel-toggle session";}
 
 
     // ── Screenshots ──────────────────────────────────────────────────────

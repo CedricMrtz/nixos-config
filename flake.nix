@@ -20,19 +20,13 @@
     # };
     
     noctalia = {
-      url = "github:noctalia-dev/noctalia-shell";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.quickshell.follows = "quickshell";
-    };
-
-    quickshell = {
-      url = "github:outfoxxed/quickshell";
+      url = "github:noctalia-dev/noctalia";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     claude-code.url = "github:sadjow/claude-code-nix";
 };
-  outputs = { self, nixpkgs, home-manager, zen-browser, noctalia, quickshell, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, zen-browser, noctalia, ... }@inputs:
   let
     mkSystem = host: system: nixpkgs.lib.nixosSystem {
       specialArgs = { inherit inputs system; };

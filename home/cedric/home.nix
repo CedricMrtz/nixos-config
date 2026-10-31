@@ -34,9 +34,9 @@
   "${config.home.homeDirectory}/nixos-config/dotfiles/ghostty/config";
   xdg.configFile."ghostty/config".force = true;
 
-  # noctalia shell symlink config
-  xdg.configFile."noctalia/settings.json".source = lib.mkForce (config.lib.file.mkOutOfStoreSymlink
-  "${config.home.homeDirectory}/nixos-config/dotfiles/noctalia/settings.json");
+  # noctalia (v5) symlink config
+  xdg.configFile."noctalia/config.toml".source = lib.mkForce (config.lib.file.mkOutOfStoreSymlink
+  "${config.home.homeDirectory}/nixos-config/dotfiles/noctalia/config.toml");
   
   # symlink for rmpc 
   xdg.configFile."rmpc/config.ron".source = config.lib.file.mkOutOfStoreSymlink
