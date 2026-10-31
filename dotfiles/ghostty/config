@@ -5,9 +5,6 @@ theme = TokyoNight Moon
 font-family = JetBrainsMono Nerd Font
 font-size = 13
 
-# ── Transparencia ─────────────────────────────
-background-opacity = 0.85
-background-blur-radius = 20
 
 # ── Sin decoraciones de ventana ───────────────
 window-decoration = false

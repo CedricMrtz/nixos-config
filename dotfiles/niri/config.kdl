@@ -107,6 +107,30 @@ layer-rule {
   place-within-backdrop true
 }
 
+// ── Blur de Noctalia (niri 26.04+) ───────────────────────────────────────────
+// xray false: difumina lo que hay detrás (ventanas) en vez de solo el wallpaper
+layer-rule {
+  match namespace="^noctalia-(bar-[^\"]+|notification|dock|panel|attached-panel|osd)$"
+  background-effect {
+    xray false
+  }
+}
+
+layer-rule {
+  match namespace="noctalia-window-switcher"
+  background-effect {
+    blur true
+    xray false
+  }
+}
+
+blur {
+  passes 3
+  offset 3.0
+  noise 0.02
+  saturation 1.2
+}
+
 // ── Keybindings ────────────────────────────────────────────────────────────
 binds {
     // ── Session ──────────────────────────────────────────────────────────
