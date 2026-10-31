@@ -32,6 +32,7 @@
   # symlink for the .dotfile of ghostty
   xdg.configFile."ghostty/config".source = config.lib.file.mkOutOfStoreSymlink
   "${config.home.homeDirectory}/nixos-config/dotfiles/ghostty/config";
+  xdg.configFile."ghostty/config".force = true;
 
   # noctalia shell symlink config
   xdg.configFile."noctalia/settings.json".source = lib.mkForce (config.lib.file.mkOutOfStoreSymlink

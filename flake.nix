@@ -29,6 +29,8 @@
       url = "github:outfoxxed/quickshell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    claude-code.url = "github:sadjow/claude-code-nix";
 };
   outputs = { self, nixpkgs, home-manager, zen-browser, noctalia, quickshell, ... }@inputs:
   let
@@ -37,12 +39,15 @@
       modules = [
         ./hosts/${host}/configuration.nix
         home-manager.nixosModules.home-manager
-        {
+        ({ pkgs, ... }: {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.extraSpecialArgs = { inherit inputs system; };
           home-manager.users.cedric = import ./home/cedric/home.nix;
-        }
+
+          nixpkgs.overlays = [ inputs.claude-code.overlays.default ];
+          environment.systemPackages = [ pkgs.claude-code ];
+        })
       ];
     };
   in {
