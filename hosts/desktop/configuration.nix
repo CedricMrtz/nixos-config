@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   imports =
@@ -62,6 +62,7 @@
 
   # niri
   programs.niri.enable = true;
+  services.gnome.gnome-keyring.enable = lib.mkForce false;
   #
   # # hyprland config``
   # programs.hyprland = {

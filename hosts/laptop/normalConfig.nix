@@ -16,6 +16,9 @@
     pulse.enable = true;
   };
   services.pulseaudio.enable = false;
+  # niri enables gnome-keyring by default; with autologin it prompts at login
+  services.gnome.gnome-keyring.enable = lib.mkForce false;
+
   services.displayManager.autoLogin = {
     enable = true;
     user = "cedric";

@@ -1,3 +1,7 @@
+hotkey-overlay {
+    skip-at-startup
+}
+
 // ── Input ──────────────────────────────────────────────────────────────────
 input {
     keyboard {
