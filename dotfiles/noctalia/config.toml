@@ -5,6 +5,10 @@ source = "builtin"       # builtin | wallpaper | community
 builtin = "Tokyo-Night"  # combina con niri (focus ring) y Ghostty
 sync_color_scheme = true
 
+[theme.templates]
+enable_community_templates = true
+community_ids = ["obsidian", "lazyvim"]   # lazyvim: genera nvim/colors/noctalia.lua
+
 # ── Shell ────────────────────────────────────────────────────────────────────
 [shell]
 corner_radius_scale = 1.2

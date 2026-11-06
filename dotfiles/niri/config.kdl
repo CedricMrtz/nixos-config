@@ -78,12 +78,12 @@ spawn-at-startup "bash" "-c" "sleep 2 && noctalia msg session lock"
 window-rule {
     geometry-corner-radius 8
     clip-to-geometry true
-    opacity 0.9
+    opacity 0.98
     draw-border-with-background false
 }
 
 window-rule {
-  opacity 0.9
+  opacity 0.98
   match app-id="ghostty"
   draw-border-with-background false
 }
@@ -236,3 +236,5 @@ binds {
 
 // include "./noctalia.kdl"
 
+
+include "noctalia.kdl"

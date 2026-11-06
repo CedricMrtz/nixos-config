@@ -1,1 +1,4 @@
 .DS_Store
+
+# generado por noctalia (plantilla lazyvim)
+dotfiles/nvim/colors/noctalia.lua
